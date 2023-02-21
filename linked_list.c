@@ -12,7 +12,7 @@ node_t *make_node(int x) {
 }
 
 linked_list_t *init_linked_list() {
-  linked_list_t *ll = malloc(sizeof(linked_list_t *));
+  linked_list_t *ll = malloc(sizeof(linked_list_t));
   ll->head = NULL;
   ll->tail = NULL;
   ll->size = 0;
@@ -43,9 +43,10 @@ void prepend_node(linked_list_t *ll, node_t *n) {
 
 void delete (linked_list_t *ll, int index) {
   if (index >= ll->size) {
+    printf("!!! index out of bounds !!!\n");
+    printf("!!! EXITING !!!\n");
     exit(1);
   } else {
-    ll->size--;
     if (index == 0) {       // head
       void* addr = ll->head;
       if(ll->size == 1) {
@@ -57,6 +58,7 @@ void delete (linked_list_t *ll, int index) {
       } else {
         ll->head = ll->head->next;
       }
+      ll->size--;
       free(addr);
     } else if (index == ll->size - 1) {  //tail
       if(ll->head->next == NULL) {
@@ -68,10 +70,12 @@ void delete (linked_list_t *ll, int index) {
           cursor = cursor->next;
         }
         free(cursor->next->next);
-        cursor->next->next = NULL;
+        cursor->next = NULL;
+        ll->size--;
       }
     } else { // in between
       printf("between indexes not ready yet\n");
+      printf("!!! EXITING !!!\n");
       exit(1);
     }
   }
@@ -79,7 +83,7 @@ void delete (linked_list_t *ll, int index) {
 
 void to_string(linked_list_t *ll) {
   node_t *curr = ll->head;
-  printf("LinkedList (");
+  printf("linked_list_t(");
   while (curr != NULL) {
     printf("%d, ", curr->val);
     curr = curr->next;
