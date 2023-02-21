@@ -2,7 +2,7 @@
 
 int main() {
 
-  LinkedList* ll = init_linked_list();
+  linked_list_t* ll = init_linked_list();
 
   for(int i = 0, n = 10; i < n; i++) {
     node_t* temp = make_node(i);
@@ -10,7 +10,9 @@ int main() {
   }
 
   node_t* replace = make_node(42);
+  node_t* prepend = make_node(22);
   set_head(ll, replace);
+  prepend_node(ll, prepend);
   traverse_linked_list(ll);
 
   return 0;

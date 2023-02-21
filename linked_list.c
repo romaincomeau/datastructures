@@ -11,15 +11,15 @@ node_t* make_node(int x) {
   return n;
 }
 
-LinkedList* init_linked_list() {
-  LinkedList* ll = malloc(sizeof(LinkedList*));
+linked_list_t* init_linked_list() {
+  linked_list_t* ll = malloc(sizeof(linked_list_t*));
   ll->head = NULL;
   ll->tail = NULL;
   ll->size = 0;
   return ll;
 }
 
-void append_node(LinkedList* ll, node_t* n) {
+void append_node(linked_list_t* ll, node_t* n) {
   if(ll->tail == NULL) {
     ll->head = n;
     ll->tail = n;
@@ -29,14 +29,19 @@ void append_node(LinkedList* ll, node_t* n) {
   }
 }
 
-void set_head(LinkedList* ll, node_t* n) {
+void set_head(linked_list_t* ll, node_t* n) {
   n->next = ll->head->next;
   ll->head = n;
 }
 
-void traverse_linked_list(LinkedList* ll) {
+void prepend_node(linked_list_t* ll, node_t* n) {
+  n->next = ll->head;
+  ll->head = n;
+}
+
+void traverse_linked_list(linked_list_t* ll) {
   node_t* curr = ll->head;
-  printf("LinkedList(");
+  printf("linked_list_t(");
   while(curr != NULL) {
     printf("%d->", curr->val);
     curr = curr->next;
