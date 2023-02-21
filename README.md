@@ -1,4 +1,4 @@
 # datastructures
 
 # description:
-  implementing popular datastructures from scratch in C
+  implementing datastructures from scratch in C
