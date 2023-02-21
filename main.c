@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "linked_list.h"
 
 int main() {
@@ -14,6 +15,7 @@ int main() {
   set_head(ll, replace);
   prepend_node(ll, prepend);
   traverse_linked_list(ll);
+  printf("linked_list size: %d\n", ll->size);
 
   return 0;
 }

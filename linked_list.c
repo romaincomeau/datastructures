@@ -27,6 +27,7 @@ void append_node(linked_list_t* ll, node_t* n) {
     ll->tail->next = n;
     ll->tail = n;
   }
+  ll->size++;
 }
 
 void set_head(linked_list_t* ll, node_t* n) {
@@ -37,14 +38,15 @@ void set_head(linked_list_t* ll, node_t* n) {
 void prepend_node(linked_list_t* ll, node_t* n) {
   n->next = ll->head;
   ll->head = n;
+  ll->size++;
 }
 
 void traverse_linked_list(linked_list_t* ll) {
   node_t* curr = ll->head;
   printf("linked_list_t(");
   while(curr != NULL) {
-    printf("%d->", curr->val);
+    printf("%d, ", curr->val);
     curr = curr->next;
   }
-  printf(")\n");
+  printf("null)\n");
  }
