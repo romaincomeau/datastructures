@@ -10,14 +10,8 @@ int main() {
     append_node(ll, temp);
   }
 
-  node_t *replace = make_node(42);
-  node_t *prepend = make_node(22);
-  set_head(ll, replace);
-  prepend_node(ll, prepend);
 
-  delete(ll, 0);
   to_string(ll);
-  printf("linked_list size: %d\n", ll->size);
 
   return 0;
 }

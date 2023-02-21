@@ -11,9 +11,9 @@ typedef struct linked_list_t {
 } linked_list_t;
 
 node_t* make_node(int);
-node_t* delete(linked_list_t*, int);
-void  append_node(linked_list_t*, node_t*);
-void  prepend_node(linked_list_t*, node_t*);
-void  set_head(linked_list_t*, node_t*);
-void  to_string(linked_list_t*);
+void delete(linked_list_t*, int);
+void append_node(linked_list_t*, node_t*);
+void prepend_node(linked_list_t*, node_t*);
+void set_head(linked_list_t*, node_t*);
+void to_string(linked_list_t*);
 linked_list_t* init_linked_list();
