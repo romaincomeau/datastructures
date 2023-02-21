@@ -12,5 +12,6 @@ typedef struct LinkedList {
 
 node_t* make_node(int);
 void  append_node(LinkedList*, node_t*);
+void  set_head(LinkedList*, node_t*);
 void  traverse_linked_list(LinkedList*);
 LinkedList* init_linked_list();

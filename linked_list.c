@@ -29,6 +29,11 @@ void append_node(LinkedList* ll, node_t* n) {
   }
 }
 
+void set_head(LinkedList* ll, node_t* n) {
+  n->next = ll->head->next;
+  ll->head = n;
+}
+
 void traverse_linked_list(LinkedList* ll) {
   node_t* curr = ll->head;
   printf("LinkedList(");
@@ -37,4 +42,4 @@ void traverse_linked_list(LinkedList* ll) {
     curr = curr->next;
   }
   printf(")\n");
-}
+ }
