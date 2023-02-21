@@ -1,12 +1,13 @@
-all: main
+all: main.o linked_list.o
+	cc main.o linked_list.o -o main
 
-main: linked_list.o
-	cc  linked_list.o -o linked_list
-
+main.o: main.c linked_list.h
+	cc -c main.c
 
 linked_list.o: linked_list.c linked_list.h
-	cc  -c linked_list.c
+	cc -c linked_list.c
+
 
 clean:
 	rm *.o
-	rm linked_list
+	rm main
