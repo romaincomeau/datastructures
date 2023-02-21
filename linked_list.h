@@ -12,4 +12,6 @@ typedef struct LinkedList {
 
 node* getNode(int);
 void  insert(LinkedList*, node*);
+void  append(LinkedList*, node*);
+void  traverse(LinkedList*);
 LinkedList* init();

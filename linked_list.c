@@ -19,23 +19,36 @@ LinkedList* init() {
   return ll;
 }
 
-void insert(LinkedList* ll, node* n) {
-  node* curr = ll->head;
-  while(curr != NULL) {
-    curr = curr->next;
+void append(LinkedList* ll, node* n) {
+  if(ll->tail == NULL) {
+    ll->head = n;
+    ll->tail = n;
+  } else {
+    ll->tail->next = n;
+    ll->tail = n;
   }
-  curr = n;
 }
 
-
+void traverse(LinkedList* ll) {
+  node* curr = ll->head;
+  printf("LinkedList(");
+  while(curr != NULL) {
+    printf("%d, ", curr->val);
+    curr = curr->next;
+  }
+  printf(")\n");
+}
 
 int main() {
+
   LinkedList* ll = init();
 
-  node* n0 = getNode(5);
-  node* n1 = getNode(6);
-  insert(ll, n0);
-  insert(ll, n1);
+  for(int i = 0, n = 1000000; i < n; i++) {
+    node* temp = getNode(i);
+    append(ll, temp);
+  }
+
+  // traverse(ll);
 
   return 0;
 }
