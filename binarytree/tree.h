@@ -4,4 +4,6 @@ typedef struct tree_t {
   struct tree_t* right;
 } tree_t;
 
-tree_t* tree_init(int);
+tree_t* node_init(int);
+void insert(tree_t*, tree_t*);
+void display(tree_t*);
