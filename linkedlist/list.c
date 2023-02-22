@@ -13,7 +13,7 @@ node_t *make_node(int x) {
 }
 
 linked_list_t *init_linked_list() {
-  linked_list_t *ll = malloc(sizeof(linked_list_t));
+  linked_list_t* ll = malloc(sizeof(linked_list_t));
   ll->head = NULL;
   ll->tail = NULL;
   ll->length = 0;
