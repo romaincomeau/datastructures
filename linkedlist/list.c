@@ -1,6 +1,7 @@
-#include "linked_list.h"
 #include <stdio.h>
 #include <stdlib.h>
+
+#include "list.h"
 
 #define NODE_SIZE sizeof(node_t)
 
@@ -87,7 +88,7 @@ void delete (linked_list_t *ll, int index) {
 
 void to_string(linked_list_t *ll) {
   node_t *curr = ll->head;
-  printf("linked_list_t(");
+  printf("list (");
   while (curr != NULL) {
     printf("%d, ", curr->val);
     curr = curr->next;

@@ -1,11 +1,11 @@
-all: main.o linked_list.o
-	cc main.o linked_list.o -o main
+all: main.o list.o
+	cc main.o list.o -o main
 
-main.o: main.c linked_list.h
+main.o: main.c list.h
 	cc -c main.c
 
-linked_list.o: linked_list.c linked_list.h
-	cc -c linked_list.c
+list.o: list.c list.h
+	cc -c list.c
 
 
 clean:

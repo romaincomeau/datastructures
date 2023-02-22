@@ -1,5 +1,6 @@
-#include "linked_list.h"
 #include <stdio.h>
+
+#include "list.h"
 
 int main() {
 
