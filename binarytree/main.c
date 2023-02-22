@@ -9,4 +9,5 @@ int main () {
   }
   
   to_string(root);
+  return 0;
 }
