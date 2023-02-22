@@ -15,7 +15,7 @@ linked_list_t *init_linked_list() {
   linked_list_t *ll = malloc(sizeof(linked_list_t));
   ll->head = NULL;
   ll->tail = NULL;
-  ll->size = 0;
+  ll->length = 0;
   return ll;
 }
 
@@ -27,7 +27,7 @@ void append_node(linked_list_t *ll, node_t *n) {
     ll->tail->next = n;
     ll->tail = n;
   }
-  ll->size++;
+  ll->length++;
 }
 
 void set_head(linked_list_t *ll, node_t *n) {
@@ -38,29 +38,29 @@ void set_head(linked_list_t *ll, node_t *n) {
 void prepend_node(linked_list_t *ll, node_t *n) {
   n->next = ll->head;
   ll->head = n;
-  ll->size++;
+  ll->length++;
 }
 
 void delete (linked_list_t *ll, int index) {
-  if (index >= ll->size) {
+  if (index >= ll->length) {
     printf("!!! index out of bounds !!!\n");
     printf("!!! EXITING !!!\n");
     exit(1);
   } else {
     if (index == 0) {       // head
       void* addr = ll->head;
-      if(ll->size == 1) {
+      if(ll->length == 1) {
         ll->head = NULL;
         ll->tail = NULL;
-      } else if (ll->size == 2) {
+      } else if (ll->length == 2) {
         ll->head = ll->head->next;
         ll->tail = ll->head;
       } else {
         ll->head = ll->head->next;
       }
-      ll->size--;
+      ll->length--;
       free(addr);
-    } else if (index == ll->size - 1) {  //tail
+    } else if (index == ll->length - 1) {  //tail
       if(ll->head->next == NULL) {
         free(ll->head->next);
         ll->head->next = NULL;
@@ -71,12 +71,16 @@ void delete (linked_list_t *ll, int index) {
         }
         free(cursor->next->next);
         cursor->next = NULL;
-        ll->size--;
+        ll->length--;
       }
     } else { // in between
-      printf("between indexes not ready yet\n");
-      printf("!!! EXITING !!!\n");
-      exit(1);
+      node_t* target = ll->head;
+      for (int i = 1; i < index; i++) { // starting at 1 to stop just before the item to be deleted
+        target = target->next;  
+      }
+      void* next_pointer = target->next->next;
+      free(target->next);
+      target->next = next_pointer;
     }
   }
 }

@@ -7,7 +7,7 @@ typedef struct node_t {
 typedef struct linked_list_t {
   node_t* head;
   node_t* tail;
-  int  size;
+  int  length;
 } linked_list_t;
 
 node_t* make_node(int);
