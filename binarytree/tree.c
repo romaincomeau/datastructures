@@ -12,13 +12,13 @@ tree_t* node_init(int n) {
   return node;
 }
 
-void display(tree_t* root) {
+void to_string(tree_t* root) {
   if (root == NULL) {
     return;
   } else {
+    to_string(root->left);
     printf("%d, ", root->val);
-    display(root->left);
-    display(root->right);
+    to_string(root->right);
   }
 }
 

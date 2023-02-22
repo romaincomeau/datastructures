@@ -6,4 +6,4 @@ typedef struct tree_t {
 
 tree_t* node_init(int);
 void insert(tree_t*, tree_t*);
-void display(tree_t*);
+void to_string(tree_t*);

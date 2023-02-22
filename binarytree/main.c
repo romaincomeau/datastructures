@@ -8,5 +8,5 @@ int main () {
     insert(root, node);
   }
   
-  display(root);
+  to_string(root);
 }
